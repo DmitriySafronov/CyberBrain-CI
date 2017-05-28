@@ -39,7 +39,7 @@ $local_name = addslashes($service_name."/".$repository_full_name);
 if ($error == true) {
     header("HTTP/1.0 404 Not Found");
 } else {
-    echo "Executing scripts for [".$local_name."]...";
+    echo "Attemting to execute scripts for [".$local_name."]...";
     exec("$launcher $local_name >/dev/null 2>/dev/null &");
 }
 ?>

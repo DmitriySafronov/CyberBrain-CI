@@ -1,1 +1,0 @@
-www-data  ALL=(ALL:ALL) NOPASSWD:/usr/local/lib/CyberBrain-CI/CyberBrain-CI.sh
