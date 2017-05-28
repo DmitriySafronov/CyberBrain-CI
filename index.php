@@ -1,13 +1,8 @@
 <?php
 # DEFAULTS
 $launcher = "/usr/local/lib/CyberBrain-CI/worker.sh";
-$recipes_dir = "/var/local/cyberbrain-ci/recipes";
-
-##########################################################
-
 # Override DEFAULTS (if any)
 include(config.php);
-if (!is_dir($recipes_dir)) $error = true;
 if (!file_exists($launcher)) $error = true;
 
 ##########################################################

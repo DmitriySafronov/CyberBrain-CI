@@ -29,5 +29,5 @@ if [[ -x "${RECIPE}" ]]; then
     "${HOME}/recipes/$1"
     eval `ssh-agent -k`
 else
-    logger -t "CyberBrain-CI" -s "Skipping execution of [$1] - not an executable..."
+    logger -t "CyberBrain-CI" -s "Skipping [$1]..."
 fi
