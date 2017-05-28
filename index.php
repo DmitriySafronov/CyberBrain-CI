@@ -1,15 +1,18 @@
 <?php
-
 # DEFAULTS
 $launcher = "/usr/local/lib/CyberBrain-CI/CyberBrain-CI.sh";
-$recipes_dir = "/var/local/CyberBrain-CI";
-
-# Override DEFAULTS (if any)
-include(config.php);
+$recipes_dir = "/var/local/cyberbrain-ci/recipes";
 
 ##########################################################
 
-$service_name = '';
+# Override DEFAULTS (if any)
+include(config.php);
+if (!is_dir($recipes_dir)) $error = true;
+if (!file_exists($launcher)) $error = true;
+
+##########################################################
+##########################################################
+
 $error = false;
 $json = file_get_contents('php://input');
 $payload = json_decode($json);
@@ -21,33 +24,22 @@ $repository_full_name = $repository -> full_name;
 
 ##########################################################
 
+$service_name = '';
 if (substr_count($repository -> url, 'github.com') > 0) $service_name = 'github.com';
 if (substr_count($repository -> links -> self -> href, 'bitbucket.org') > 0) $service_name = 'bitbucket.org';
+if ($service_name == '') $error = true;
 
 ##########################################################
 
-if ($service_name == '') {
-    $error = true;
-}
+$local_name = addslashes($service_name."/".$repository_full_name);
 
-$local_name = $service_name."/".$repository_full_name;
-$filename = addslashes($recipes_dir)."/".addslashes($local_name).".sh";
-
-if (!file_exists($filename)) {
-    $error = true;
-}
-
-if (!file_exists($launcher)) {
-    $error = true;
-}
-
+##########################################################
 ##########################################################
 
 if ($error == true) {
     header("HTTP/1.0 404 Not Found");
 } else {
     echo "Executing scripts for [".$local_name."]...";
-    exec("$launcher $filename >/dev/null 2>/dev/null &");
+    exec("$launcher $local_name >/dev/null 2>/dev/null &");
 }
-
 ?>
