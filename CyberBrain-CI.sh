@@ -7,11 +7,11 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 if [ -x "$1" ]; then
-    logger -t "Launcher" "Executing [$@] as root..."
+    logger -t "CyberBrain-CI" "Executing [$@] as root..."
     eval `ssh-agent`
     ssh-add ~/.ssh/id_rsa
     $@
     ssh-agent -k
 else
-    logger -t "Launcher" "Skipping execution of [$@] - not an executable..."
+    logger -t "CyberBrain-CI" "Skipping execution of [$@] - not an executable..."
 fi

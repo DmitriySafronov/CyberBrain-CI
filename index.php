@@ -1,7 +1,7 @@
 <?php
 
 # DEFAULTS
-$launcher = "/usr/local/sbin/Launcher.sh";
+$launcher = "/usr/local/lib/CyberBrain-CI/CyberBrain-CI.sh";
 $recipes_dir = "/var/local/CyberBrain-CI";
 
 # Override DEFAULTS (if any)
