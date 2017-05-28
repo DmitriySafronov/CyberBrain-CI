@@ -22,12 +22,15 @@ For Ubuntu
 3. Edit `/etc/sudoers.d/CyberBrain-CI` - correct path to your `worker.sh`
 
 4. Create dir hierarchy in `cyberbrain-ci`'s home (like `service_name_dir`/`user_name_dir`):
+
     `mkdir -p ~/recipes/github.com/DmitriySafronov`
 
 5. Edit recipe file in hierarchy (`service_name_dir`/`user_name_dir`/`repo_name_file'):
+
     `editor ~/recipes/github.com/DmitriySafronov/CyberBrain-CI`
 
 6. Make recipe file executable:
+
     `chmod +x ~/recipes/github.com/DmitriySafronov/CyberBrain-CI`
 
 7. Create a webhook and attach it to your CI url.
