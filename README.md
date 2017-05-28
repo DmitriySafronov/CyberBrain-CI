@@ -5,6 +5,10 @@ Quick & dirty solution for fast development builds deployment.
 
 You can use any scripting language installed in you recipes.
 
+## Requirements
+
+PHP with exec() enabled, BASH; your favorite scripting language for recipes ;)
+
 ## Installation
 
 For Ubuntu
