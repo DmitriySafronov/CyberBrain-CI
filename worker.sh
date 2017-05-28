@@ -21,7 +21,7 @@ chmod -R a+rwX,go-rwX "${HOME}/.ssh"
 chmod -R a+rX,go-w "${HOME}/recipes"
 
 # Executing a recipe (if exists)
-if [[ -n "$1" && -x "${HOME}/recipes/$1" ]]; then
+if [[ -x "${HOME}/recipes/$1" ]]; then
     logger -t "CyberBrain-CI" -s "Executing [$1]..."
     eval `ssh-agent`
     ssh-add "${HOME}/.ssh/id_rsa"
