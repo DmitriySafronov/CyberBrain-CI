@@ -23,11 +23,13 @@ chmod -R a+rX,go-w "${HOME}/recipes"
 # Executing a recipe (if exists)
 RECIPE="${HOME}/recipes/$1"
 if [[ -x "${RECIPE}" ]]; then
-    logger -t "CyberBrain-CI" -s "Executing [$1]..."
+    logger -t "CyberBrain-CI" -s -p syslog.info -- "Executing [$1]..."
     eval `ssh-agent`
     ssh-add "${HOME}/.ssh/id_rsa"
     "${HOME}/recipes/$1"
     eval `ssh-agent -k`
+elif [[ -r "${RECIPE}" ]]; then
+    logger -t "CyberBrain-CI" -s -p syslog.warning -- "Skipping [$1] - not an executable (yet)..."
 else
-    logger -t "CyberBrain-CI" -s "Skipping [$1]..."
+    logger -t "CyberBrain-CI" -s -p syslog.notice -- "Ignoring [$1] - no recipe found..."
 fi
