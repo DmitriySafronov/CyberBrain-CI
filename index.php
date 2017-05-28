@@ -31,6 +31,6 @@ if ($error == true) {
     header("HTTP/1.0 404 Not Found");
 } else {
     echo "Attemting to execute scripts for [".$local_name."]...";
-    exec("worker.sh $local_name >/dev/null 2>/dev/null &");
+    exec("./worker.sh $local_name >/dev/null 2>/dev/null &");
 }
 ?>
