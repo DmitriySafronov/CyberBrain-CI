@@ -8,7 +8,7 @@ fi
 
 # First argument should be a recipe
 if [[ -z "$1" ]]; then
-    echo "CyberBrain-CI: No recipe defined..."
+    logger -t "CyberBrain-CI" -s "No recipe defined..."
     exit 1
 fi
 
