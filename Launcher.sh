@@ -7,4 +7,4 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 logger -t "Launcher" "Executng [$@] as root..."
-setsid $@ &
+$@ &
