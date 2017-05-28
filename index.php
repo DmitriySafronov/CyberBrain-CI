@@ -1,6 +1,6 @@
 <?php
 # DEFAULTS
-$launcher = "/usr/local/lib/CyberBrain-CI/CyberBrain-CI.sh";
+$launcher = "/usr/local/lib/CyberBrain-CI/worker.sh";
 $recipes_dir = "/var/local/cyberbrain-ci/recipes";
 
 ##########################################################
