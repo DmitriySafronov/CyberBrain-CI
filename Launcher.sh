@@ -2,7 +2,7 @@
 
 # Script should be runned as root
 if [ "$(id -u)" != "0" ]; then
-    sudo -u root -H -b $0 $@
+    setsid sudo -u root -H -b $0 $@
     exit 0
 fi
 
