@@ -13,12 +13,12 @@ if [[ -z "$1" ]]; then
 fi
 
 # Recipes and .ssh dirs should exist and have valid acls
-mkdir -p "${HOME}/recipes"
 mkdir -p "${HOME}/.ssh"
-chown -R cyberbrain-ci:nogroup "${HOME}"
-chmod a+rX,gu-w "${HOME}"
+mkdir -p "${HOME}/recipes"
 chmod -R a+rwX,go-rwX "${HOME}/.ssh"
 chmod -R a+rX,go-w "${HOME}/recipes"
+chmod a+rX,gu-w "${HOME}"
+chown -R cyberbrain-ci:nogroup "${HOME}"
 
 # Executing a recipe (if exists)
 RECIPE="${HOME}/recipes/$1"
