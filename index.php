@@ -47,7 +47,7 @@ if ($error == true) {
     header("HTTP/1.0 404 Not Found");
 } else {
     echo "Executing scripts for [".$local_name."]...";
-    exec("setsid $launcher $filename");
+    exec("$launcher $filename");
 }
 
 ?>
