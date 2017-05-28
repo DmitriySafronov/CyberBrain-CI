@@ -8,7 +8,10 @@ fi
 
 if [ -x "$1" ]; then
     logger -t "Launcher" "Executing [$@] as root..."
-    $@ &
+    eval `ssh-agent`
+    ssh-add ~/.id_rsa
+    $@
+    ssh-agent -k
 else
     logger -t "Launcher" "Skipping execution of [$@] - not an executable..."
 fi
